@@ -13,13 +13,10 @@ export default function EditProjectView() {
     queryFn: () => getProjectById(projectId),
     retry: false
   })
-  
-  console.log(isLoading)
-  console.log(data)
-  console.log(isError)
+
   
   if(isLoading) return 'Cargando...'
   if(isError) return <Navigate to='/404' />
 
-  if(data) return <EditProjectForm data={data} />
+  if(data) return <EditProjectForm data={data} projectId={projectId} />
 }
